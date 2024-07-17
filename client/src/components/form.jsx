@@ -30,7 +30,7 @@ const FormComponent = ({
               type="text"
               name="customerName"
               value={customerName}
-              disabled={items.length > 0}
+              disabled={items?.length > 0}
               onChange={(e) => {
                 setCustomerName(e.target.value);
               }}
@@ -181,7 +181,6 @@ const FormComponent = ({
 
 FormComponent.propTypes = {
   formData: PropTypes.shape({
-    customerName: PropTypes.string.isRequired,
     product: PropTypes.string.isRequired,
     rate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     unit: PropTypes.string.isRequired,
