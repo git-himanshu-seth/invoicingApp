@@ -44,6 +44,11 @@ input[type="number"] {
   background-color: #4a82c1;
   box-shadow: none;
 }
+.bordered-input:disabled {
+  border-color: #3b73a3;
+  background-color: #4a82c1;
+  box-shadow: none;
+}
 
 .border-values {
   color: black;

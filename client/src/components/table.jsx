@@ -19,29 +19,31 @@ const TableComponent = ({ items, removeItem, editItem }) => {
           </tr>
         </thead>
         <tbody>
-          {items.map((item, index) => (
-            <tr key={index}>
-              <td>{item.productName}</td>
-              <td>{item.rate}</td>
-              <td>{item.unit}</td>
-              <td>{item.quantity}</td>
-              <td>{item.discount}</td>
-              <td>{item.netAmount}</td>
-              <td>{item.totalAmount}</td>
-              <td>
-                <Button
-                  variant="danger"
-                  className="me-2"
-                  onClick={() => removeItem(index)}
-                >
-                  Delete
-                </Button>
-                <Button variant="warning" onClick={() => editItem(index)}>
-                  Edit
-                </Button>
-              </td>
-            </tr>
-          ))}
+          {items &&
+            items.length > 0 &&
+            items.map((item, index) => (
+              <tr key={index}>
+                <td>{item.productName}</td>
+                <td>{item.rate}</td>
+                <td>{item.unit}</td>
+                <td>{item.quantity}</td>
+                <td>{item.discount}</td>
+                <td>{item.netAmount}</td>
+                <td>{item.totalAmount}</td>
+                <td>
+                  <Button
+                    variant="danger"
+                    className="me-2"
+                    onClick={() => removeItem(index)}
+                  >
+                    Delete
+                  </Button>
+                  <Button variant="warning" onClick={() => editItem(index)}>
+                    Edit
+                  </Button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </Table>
     </>
@@ -51,6 +53,7 @@ const TableComponent = ({ items, removeItem, editItem }) => {
 TableComponent.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
+      productName: PropTypes.string.isRequired,
       product: PropTypes.string.isRequired,
       rate: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
         .isRequired,

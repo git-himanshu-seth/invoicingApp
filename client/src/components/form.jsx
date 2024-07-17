@@ -17,7 +17,10 @@ const FormComponent = ({
     <Form className="form">
       <Row className="mb-3">
         <Col sm={4} className="d-flex align-items-center">
-          <Form.Label htmlFor="customerName" className="fw-bold mb-0">
+          <Form.Label
+            htmlFor="customerName"
+            className="fw-bold mb-0 bordered-inpu"
+          >
             Customer Name
           </Form.Label>
         </Col>
@@ -32,7 +35,7 @@ const FormComponent = ({
                 setCustomerName(e.target.value);
               }}
               isInvalid={!!errors.customerName}
-              className="bordered-input "
+              className="bordered-input"
             />
             <Form.Control.Feedback type="invalid">
               {errors.customerName}
